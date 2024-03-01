@@ -14,6 +14,10 @@ export const FeaturedCategoryPage = () => {
     uploadArticles();
   }, []);
 
+  useEffect(() => {
+    console.log(categories);
+  }, [categories]);
+
   const uploadArticles = async () => {
     const resp = await reqArticles.get("/index.php", {
       params: {
@@ -33,14 +37,46 @@ export const FeaturedCategoryPage = () => {
     padding: 0px 20px;
     position: relative;
   `;
+
+  const StyledContainerAllCategories = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  `;
+
+  const StyledContainerCategory = styled.section`
+    width: calc(50% - 15px);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 16px;
+  `;
+
+  const StyledTitle = styled.h2`
+    font-size: 22px;
+    margin: 15px 0px;
+    font-weight: 600;
+    color: rgb(1, 78, 203);
+  `;
+
   return (
     <StyledFeaturedCategory>
       {loading && <Loading />}
-      {categories.map((categoria) => (
-        <p>{categoria.nombre}</p>
-      ))}
-      <CategoryHeader />
-      <ProductCard />
+
+      <StyledTitle>¡Es nuevo y destacado!</StyledTitle>
+
+      <StyledContainerAllCategories>
+        {categories.map((categoria) => (
+          <StyledContainerCategory>
+            <CategoryHeader />
+
+            {categoria.productos.map((article) => (
+              <ProductCard />
+            ))}
+            <ProductCard />
+          </StyledContainerCategory>
+        ))}
+      </StyledContainerAllCategories>
     </StyledFeaturedCategory>
   );
 };
