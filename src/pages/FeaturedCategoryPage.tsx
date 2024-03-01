@@ -1,36 +1,11 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Loading } from "../components/Loading";
 import { CategoryHeader } from "../components/CategoryHeader";
 import { ProductCard } from "../components/ProductCard";
-import { reqArticles } from "../api/reqArticles";
-import { CategoriasDestacada } from "../interfaces/reqArticlesApi";
+import { useFeaturedCategory } from "../hooks/useFeaturedCategory";
 
 export const FeaturedCategoryPage = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [categories, setCategories] = useState<CategoriasDestacada[]>([]);
-
-  useEffect(() => {
-    uploadArticles();
-  }, []);
-
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
-
-  const uploadArticles = async () => {
-    const resp = await reqArticles.get("/index.php", {
-      params: {
-        ctrl: "index",
-        act: "categoriasDestacadas",
-      },
-    });
-
-    if (resp.data.length > 0) {
-      setCategories(resp.data);
-      setLoading(false);
-    }
-  };
+  const { loading, categories } = useFeaturedCategory();
 
   const StyledFeaturedCategory = styled.section`
     flex: 1;
@@ -68,7 +43,10 @@ export const FeaturedCategoryPage = () => {
       <StyledContainerAllCategories>
         {categories.map((categoria) => (
           <StyledContainerCategory>
-            <CategoryHeader title={categoria.nombre} description={categoria.descripcion}/>
+            <CategoryHeader
+              title={categoria.nombre}
+              description={categoria.descripcion}
+            />
 
             {categoria.productos.map((article) => (
               <ProductCard />
