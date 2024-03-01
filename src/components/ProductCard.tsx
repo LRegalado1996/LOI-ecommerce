@@ -20,14 +20,16 @@ export const ProductCard = ({ product }: Porps) => {
   } = useProductCard();
 
   const StyledContainerProduct = styled.article`
-    width: 30%;
+    width: calc(33% - 20px);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
     position: relative;
-    margin-bottom: 15px;
     height: 450px;
+    flex: 0 0 auto;
+    margin: 15px 10px;
+    margin-bottom: 15px;
   `;
 
   const StyledPhoto = styled.img`
@@ -41,18 +43,19 @@ export const ProductCard = ({ product }: Porps) => {
     flex-direction: column;
     margin: 10px auto;
     font-size: 0.8rem;
-    height: 35px;
+    height: 30px;
   `;
 
   const StyledProductTitulo = styled.h2`
     font-size: 0.8rem;
     margin: 5px 0 5px;
+    white-space: normal;
     flex: 1;
   `;
   const StyledProductSubtitulo = styled.h3`
     font-size: 0.8rem;
     font-weight: normal;
-    overflow: hidden;
+    white-space: normal;
   `;
 
   const StyledProductFabricante = styled.h4`
@@ -122,10 +125,10 @@ export const ProductCard = ({ product }: Porps) => {
     background: transparent;
     box-shadow: none;
     border: none;
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
   `;
 
   const StylesPlusButton = styled.button`
@@ -150,6 +153,7 @@ export const ProductCard = ({ product }: Porps) => {
     padding: 10px;
     width: 40px;
     text-align: center;
+    white-space: normal;
   `;
 
   return (

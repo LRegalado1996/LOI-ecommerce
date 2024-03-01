@@ -21,7 +21,6 @@ export const FeaturedCategoryPage = () => {
 
   const StyledContainerCategory = styled.section`
     width: calc(50% - 15px);
-    margin-bottom: 15px;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 16px;
@@ -29,6 +28,15 @@ export const FeaturedCategoryPage = () => {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 0px auto;
+    margin-bottom: 15px;
+  `;
+
+  const StyledContainerProductCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; 
+  white-space: nowrap;
+    
   `;
 
   const StyledTitle = styled.h2`
@@ -51,10 +59,11 @@ export const FeaturedCategoryPage = () => {
               title={categoria.nombre}
               description={categoria.descripcion}
             />
-
-            {categoria.productos.map((product) => (
-              <ProductCard product={product} />
-            ))}
+            <StyledContainerProductCard>
+              {categoria.productos.map((product) => (
+                <ProductCard product={product} />
+              ))}
+            </StyledContainerProductCard>
           </StyledContainerCategory>
         ))}
       </StyledContainerAllCategories>
