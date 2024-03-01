@@ -68,7 +68,7 @@ export const FeaturedCategoryPage = () => {
       <StyledContainerAllCategories>
         {categories.map((categoria) => (
           <StyledContainerCategory>
-            <CategoryHeader />
+            <CategoryHeader title={categoria.nombre} description={categoria.descripcion}/>
 
             {categoria.productos.map((article) => (
               <ProductCard />
