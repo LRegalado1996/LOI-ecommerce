@@ -1,0 +1,50 @@
+Usando los datos devueltos por el siguiente endpoint (recomendamos usar alguna extencion en el navegador para evitar CORS, ejemplo: https://mybrowseraddon.com/access-control-allow-origin.html)
+https://loi.com.uy/index.php?ctrl=index&act=categoriasDestacadas
+
+- Crear una pagina que contenga los siguientes elementos:
+
+1 - 4 listados de productos, uno por categoria
+2 - un footer con el logo de loi ( src: https://d391ci4kxgasl8.cloudfront.net/_img_empresas/loi-la-oferta-irresistible.png )
+
+
+Estos elementos deberian ser componentes de forma obligatoria
+  * App
+  * FeaturedCategory
+  * CategoryHeader
+  * ProductCard
+  * Footer
+
+- El componente App debe contener al los componentes Header, Footer y FeaturedCategory.
+
+- El componente FeaturedCategory debe contener al componente categoryHeader y al compomente ProductCard
+
+- El componente categoryHeader debe contender los siguientes datos:
+  * Titulo de la categoria de productos
+  * Descripcion de la categoria de productos (250 caracteres máximo, si bien no aparece en la imagen, colocala abajo del titulo)
+
+- El componente productCard debe contener obligatoriamente los siguientes datos
+  * Fabricante (fabricante->nombre)
+  * titulo extendido (titulo + subtitulo)
+  * imagen (foto)
+  * precio (precio)
+  * precio sin descuento (precio_mercado)
+  * porcentaje de descuento (porcentaje_descuento)
+  * cantidad de estrellas - calificaciones->cantidad y calificaciones->promedio (puede ser solo el número con el string "estrellas" a la derecha)
+  * boton de agregar a favoritos (solo visual)
+  * boton de agregar al carrito (puntos extras si el boton se comporta como control de cantidad) - usar un state para esto
+  * indicador de "ya en carrito"  - usar un state para esto
+
+
+- El componente Footer debe contener el logo de LOi
+  * https://d391ci4kxgasl8.cloudfront.net/_img_empresas/loi-la-oferta-irresistible.png
+
+
+Notas:
+  * El diseño debe intentar replicar el de LOi (solo a nivel productCard) - https://loi.com.uy/ (Seccion "¡Es nuevo y destacado!")
+  * Usar Create React App (https://create-react-app.dev/) o NextJs (https://nextjs.org/) para crear el esqueleto inicial del proyecto
+  * Usar etiquetas de html5 (header, section, article, footer)
+  * Usar Fetch o ReactQuery (https://tanstack.com/query/latest) para consultar el endpoint
+  * Usar styled components para los estilos css (mandatorio)
+  * El componente de productCard debe tener un estado "cargando" (useState - real o emulado)
+  * Para lo iconos puede usarse FontAwesome
+  * TypeScript opcional
