@@ -25,6 +25,10 @@ export const FeaturedCategoryPage = () => {
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px auto;
   `;
 
   const StyledTitle = styled.h2`
@@ -48,10 +52,9 @@ export const FeaturedCategoryPage = () => {
               description={categoria.descripcion}
             />
 
-            {categoria.productos.map((article) => (
-              <ProductCard />
+            {categoria.productos.map((product) => (
+              <ProductCard product={product} />
             ))}
-            <ProductCard />
           </StyledContainerCategory>
         ))}
       </StyledContainerAllCategories>
