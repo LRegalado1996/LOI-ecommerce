@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductCardStyle = () => {
   const StyledContainerProduct = styled.article`
-    width: calc(33% - 20px);
+    width: calc(50% - 20px);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,10 @@ export const ProductCardStyle = () => {
     flex: 0 0 auto;
     margin: 15px 10px;
     margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+      width: calc(33% - 20px);
+    }
   `;
 
   const StyledPhoto = styled.img`

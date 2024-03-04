@@ -14,7 +14,7 @@ export const FeatureCategoryStyle = () => {
   `;
 
   const StyledContainerCategory = styled.section`
-    width: calc(50% - 15px);
+    width: calc(100% - 15px);
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 16px;
@@ -23,6 +23,11 @@ export const FeatureCategoryStyle = () => {
     justify-content: space-around;
     margin: 0px auto;
     margin-bottom: 15px;
+
+    @media (min-width: 576px) {
+      width: calc(50% - 15px);
+    }
+
   `;
 
   const StyledContainerProductCard = styled.div`
