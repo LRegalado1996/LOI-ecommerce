@@ -1,16 +1,8 @@
 import ReactLoading from "react-loading";
-import styled from "styled-components";
+import { LoadingStyle } from "../assets/LoadingStyle";
 
 export const Loading = () => {
-  const StyedLoading = styled.div`
-    position: absolute;
-    width: calc(100% - 40px);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 20px;
-  `;
+  const { StyedLoading } = LoadingStyle();
 
   return (
     <StyedLoading>

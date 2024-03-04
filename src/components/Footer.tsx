@@ -1,17 +1,14 @@
-import styled from "styled-components";
+import { FooterStyle } from "../assets/FooterStyle";
 
 export const Footer = () => {
-  const StyedFooter = styled.footer`
-    background: #f5df4d;
-    padding: 20px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
+  const { StyedFooter } = FooterStyle();
 
   return (
     <StyedFooter>
-      <img src="https://d391ci4kxgasl8.cloudfront.net/_img_empresas/loi-la-oferta-irresistible.png" />
+      <img
+        src="https://d391ci4kxgasl8.cloudfront.net/_img_empresas/loi-la-oferta-irresistible.png"
+        alt="Logo de LOI"
+      />
     </StyedFooter>
   );
 };
